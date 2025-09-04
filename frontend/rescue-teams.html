@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Rescue Teams</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Manage Rescue Teams</h1>
+    <nav>
+      <a href="dashboard.html" class="btn small">Back to Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form id="teamForm">
+      <label>Team Name</label>
+      <input type="text" id="teamName" required>
+
+      <label>Specialization</label>
+      <input type="text" id="teamSpecialization" required>
+
+      <label>Contact</label>
+      <input type="text" id="teamContact" required>
+
+      <button type="submit" class="btn">Add Team</button>
+    </form>
+  </div>
+
+  <h2>Existing Rescue Teams</h2>
+  <div class="table-container">
+    <table id="teamsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Specialization</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS fills -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/rescue-teams.js"></script>
+</body>
+</html>

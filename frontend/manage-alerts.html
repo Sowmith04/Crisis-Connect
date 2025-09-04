@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Alerts</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Manage Alerts</h1>
+    <nav>
+      <a href="dashboard.html" class="btn small">Back to Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form id="alertForm">
+      <label>Message</label>
+      <input type="text" id="message" required>
+
+      <label>Severity</label>
+      <select id="severity" required>
+        <option value="HIGH">High</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="LOW">Low</option>
+      </select>
+
+      <label>Location</label>
+      <input type="text" id="location" required>
+
+      <label>Disaster Report</label>
+      <input type="text" id="message" required>
+      <select id="disasterReportId" required>
+        <!-- JS fills options -->
+      </select>
+
+      <button type="submit" class="btn">Create Alert</button>
+    </form>
+  </div>
+
+  <h2>Existing Alerts</h2>
+  <div class="table-container">
+    <table id="manageAlertsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Message</th>
+          <th>Severity</th>
+          <th>Location</th>
+          <th>Disaster</th>
+          <th>Created By</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS fills -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/manage-alerts.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <header class="main-header">
+    <h1 id="dashboardTitle">Dashboard</h1>
+    <nav>
+      <button id="logoutBtn" class="btn small">Logout</button>
+    </nav>
+  </header>
+
+  <div class="dashboard-container">
+    <!-- Citizen buttons -->
+    <div id="citizenActions" class="role-section">
+      <h2>Citizen Actions</h2>
+      <a href="disaster-report.html" class="btn">Report Disaster</a>
+      <a href="alerts.html" class="btn">View Alerts</a>
+      <a href="shelters.html" class="btn">View Shelters</a>
+    </div>
+
+    <!-- Volunteer buttons -->
+    <div id="volunteerActions" class="role-section">
+      <h2>Volunteer Actions</h2>
+      <a href="alerts.html" class="btn">View Alerts</a>
+      <a href="shelters.html" class="btn">View Shelters</a>
+    </div>
+
+    <!-- Admin buttons -->
+    <div id="adminActions" class="role-section">
+      <h2>Admin Actions</h2>
+      <a href="view-reports.html" class="btn">Manage Reports</a>
+      <a href="manage-alerts.html" class="btn">Manage Alerts</a>
+      <a href="manage-shelters.html" class="btn">Manage Shelters</a>
+      <a href="relief-resources.html" class="btn">Manage Relief Resources</a>
+      <a href="volunteers.html" class="btn">Manage Volunteers</a>
+      <a href="rescue-teams.html" class="btn">Manage Rescue Teams</a>
+    </div>
+  </div>
+
+  <div class="card">
+  <h3>Current Weather</h3>
+  <input type="text" id="cityInput" placeholder="Enter city">
+  <button onclick="getWeather()">Get Weather</button>
+  <div id="weatherResult"></div>
+</div>
+
+<div id="map" style="height:400px;"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // Initialize map centered on India
+  const map = L.map('map').setView([20.5937, 78.9629], 5);
+
+  // Free OSM tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Add a marker
+  L.marker([17.385,78.4867]).addTo(map)
+    .bindPopup('Hyderabad Shelter')
+    .openPopup();
+</script>
+
+<script src="js/weather.js"></script>
+
+
+  <script src="js/utils.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
+
+

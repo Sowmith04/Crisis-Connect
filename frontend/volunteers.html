@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Volunteers</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Manage Volunteers</h1>
+    <nav>
+      <a href="dashboard.html" class="btn small">Back to Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form id="volunteerForm">
+      <label>Name</label>
+      <input type="text" id="volunteerName" required>
+
+      <label>Email</label>
+      <input type="email" id="volunteerEmail" required>
+
+      <label>Phone</label>
+      <input type="text" id="volunteerPhone" required>
+
+      <label>Assign Shelter</label>
+      <select id="volunteerShelterId" required>
+        <!-- JS fills options -->
+      </select>
+
+      <button type="submit" class="btn">Add Volunteer</button>
+    </form>
+  </div>
+
+  <h2>Existing Volunteers</h2>
+  <div class="table-container">
+    <table id="volunteersTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Shelter</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS fills -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/volunteers.js"></script>
+</body>
+</html>
+

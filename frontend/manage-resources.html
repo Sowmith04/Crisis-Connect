@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Relief Resources</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add Relief Resource</h2>
+    <form id="resourceForm">
+      <input type="text" id="resourceName" placeholder="Resource Name" required>
+      <input type="text" id="resourceType" placeholder="Resource Type" required>
+      <input type="number" id="quantity" placeholder="Quantity" required>
+      <input type="text" id="location" placeholder="Location" required>
+      <input type="text" id="status" placeholder="Status (Available/Used)" required>
+      <input type="number" id="shelterId" placeholder="Shelter ID" required>
+      <button type="submit">Add Resource</button>
+    </form>
+  </div>
+
+  <div class="dashboard">
+    <h2>Existing Resources</h2>
+    <table border="1" width="100%">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Quantity</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Shelter</th>
+        </tr>
+      </thead>
+      <tbody id="adminResourcesTable"></tbody>
+    </table>
+  </div>
+
+  <p><a href="dashboard.html">Back to Dashboard</a></p>
+
+  <script>
+    if (!user || user.role !== "ADMIN") {
+      alert("Access denied! Only Admins can manage resources.");
+      window.location.href = "login.html";
+    }
+
+    document.getElementById("resourceForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const resourceData = {
+        resourceName: document.getElementById("resourceName").value,
+        resourceType: document.getElementById("resourceType").value,
+        quantity: parseInt(document.getElementById("quantity").value),
+        location: document.getElementById("location").value,
+        status: document.getElementById("status").value,
+        shelter: { id: parseInt(document.getElementById("shelterId").value) }
+      };
+
+      try {
+        let response = await fetch("http://localhost:8080/api/resources", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(resourceData)
+        });
+
+        if (response.ok) {
+          alert("Resource added successfully!");
+          fetchAdminResources();
+        } else {
+          alert("Failed to add resource.");
+        }
+      } catch (error) {
+        console.error("Error adding resource:", error);
+      }
+    });
+
+    async function fetchAdminResources() {
+      try {
+        let response = await fetch("http://localhost:8080/api/resources");
+        let resources = await response.json();
+
+        let tableBody = document.getElementById("adminResourcesTable");
+        tableBody.innerHTML = "";
+
+        resources.forEach(res => {
+          let row = `
+            <tr>
+              <td>${res.id}</td>
+              <td>${res.resourceName}</td>
+              <td>${res.resourceType}</td>
+              <td>${res.quantity}</td>
+              <td>${res.location}</td>
+              <td>${res.status}</td>
+              <td>${res.shelter ? res.shelter.name : "N/A"}</td>
+            </tr>
+          `;
+          tableBody.innerHTML += row;
+        });
+      } catch (error) {
+        console.error("Error fetching resources:", error);
+      }
+    }
+
+    fetchAdminResources();
+  </script>
+</body>
+</html>

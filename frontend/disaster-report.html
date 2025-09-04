@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Disaster</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Report a Disaster</h1>
+    <nav>
+      <a href="dashboard.html" class="btn small">Back to Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form id="disasterReportForm">
+      <label>Type</label>
+      <input type="text" id="type" placeholder="Flood, Fire, Earthquake" required>
+
+      <label>Location</label>
+      <input type="text" id="location" placeholder="Enter location" required>
+
+      <label>Severity</label>
+      <select id="severity" required>
+        <option value="HIGH">High</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="LOW">Low</option>
+      </select>
+
+      <label>Description</label>
+      <textarea id="description" rows="3" placeholder="Describe the situation" required></textarea>
+
+      <button type="submit" class="btn">Submit Report</button>
+    </form>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/disaster-report.js"></script>
+</body>
+</html>
+

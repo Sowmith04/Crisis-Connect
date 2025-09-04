@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Disaster Reports</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Disaster Reports</h1>
+    <nav>
+      <a href="dashboard.html" class="btn small">Back to Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="table-container">
+    <table id="reportsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Severity</th>
+          <th>Description</th>
+          <th>Reported By</th>
+          <th>Reported At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS will fill rows -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/view-reports.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Relief Resources</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Manage Relief Resources</h1>
+    <nav>
+      <a href="dashboard.html" class="btn small">Back to Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form id="resourceForm">
+      <label>Shelter</label>
+      <select id="resourceShelterId" required>
+        <!-- JS fills options -->
+      </select>
+
+      <label>Resource Name</label>
+      <input type="text" id="resourceName" required>
+
+      <label>Quantity</label>
+      <input type="number" id="resourceQuantity" required>
+
+      <button type="submit" class="btn">Add Resource</button>
+    </form>
+  </div>
+
+  <h2>Existing Resources</h2>
+  <div class="table-container">
+    <table id="resourcesTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Shelter</th>
+          <th>Resource</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS fills -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/relief-resources.js"></script>
+</body>
+</html>

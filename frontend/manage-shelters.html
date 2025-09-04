@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Shelters</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>Manage Shelters</h1>
+    <nav>
+      <a href="dashboard.html" class="btn small">Back to Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form id="shelterForm">
+      <label>Name</label>
+      <input type="text" id="shelterName" required>
+
+      <label>Location</label>
+      <input type="text" id="shelterLocation" required>
+
+      <label>Capacity</label>
+      <input type="number" id="shelterCapacity" required>
+
+      <button type="submit" class="btn">Add Shelter</button>
+    </form>
+  </div>
+
+  <h2>Existing Shelters</h2>
+  <div class="table-container">
+    <table id="manageSheltersTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Capacity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS fills -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/manage-shelters.js"></script>
+</body>
+</html>
+
